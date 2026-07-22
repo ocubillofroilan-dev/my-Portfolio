@@ -54,12 +54,12 @@ def projects (request):
 
 def experience(request):
     experience=[
-        {"company":"ABC",
-         "position":"python developer"},
-        {"company":"ABC2",
-         "position":"python developer2"},
-        {"company":"ABC3",
-         "position":"python developer3"}
+        {"company":"Nextvas | Los Banos, Laguna",
+         "position":"Healthcare Customer Service Representative"},
+        {"company":"Furukawa Automotive Systems LIMA Phils., Inc. | Lipa City, Batangas ",
+         "position":"Engineer Office Personnel (On-the-Job Training)"},
+        {"company":"Telay Store 888 | Masapang, Laguna",
+         "position":"Store Staff & Cashier"}
     ]
     return render (request,"experience.html",{"experience":experience})
 
