@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content1 %}
+<div class="list-container">
+  {% for eachitem in experience %}
+  <div class="dark-card">
+    <h3>{{ eachitem.company }}</h3>
+    <p>{{ eachitem.position }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content1 %}

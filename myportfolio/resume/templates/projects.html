@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content1 %}
+<div class="projects-grid">
+  {% for project in projects_show %}
+  <div class="project-card">
+    <h3>{{ project.title }}</h3>
+    <div class="project-img-wrapper">
+      <img src="{% static project.path %}" alt="{{ project.title }}" onerror="this.src='https://via.placeholder.com/500x280?text=Project+Preview'">
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content1 %}
