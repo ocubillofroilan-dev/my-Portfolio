@@ -1,3 +1,5 @@
+{% load static %}
+
 <nav class="navbar">
   <div class="nav-logo">
     <a href="{% url 'home' %}">Froilan Ocubillo</a>
@@ -9,6 +11,6 @@
     <li><a href="{% url 'experience' %}">Experience</a></li>
     <li><a href="{% url 'certificate' %}">Certifications</a></li>
     <li><a href="{% url 'contact' %}">Contact</a></li>
-    <li><a href="{% url 'resume' %}" class="btn-resume">Resume</a></li>
+    <li><a href="{% static 'images/resume.pdf' %}" download target="_blank" class="btn-resume">View Resume</a></li>
   </ul>
 </nav>
