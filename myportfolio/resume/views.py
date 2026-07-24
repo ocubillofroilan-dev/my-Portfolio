@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.staticfiles.storage import staticfiles_storage
+from .models import ContactMessage
 
 
 # Create your views here.
@@ -14,38 +15,21 @@ def about (request):
 def projects (request):
     projects_show=[
         {
-            'title': 'Rasoi Connect',
-            'path': 'images/rasoi_connect.PNG',
+            'title': 'Website Portfolio',
+            'path': 'images/portfolio.png',
         },
         {
-            'title': 'Ecommerce',
-            'path': 'images/ecommerce.PNG',
+            'title': 'Authenticated Notes',
+            'path': 'images/notes.png',
         },
 
         {
-            'title': 'Timetable Scheduler',
-            'path': 'images/timtable.PNG',
+            'title': 'Customer Relationship Management',
+            'path': 'images/dcrm.png',
         },
         {
-            'title': 'CRUD',
-            'path': 'images/CRUD.PNG',
-        },
-
-         {
-            'title': 'Photo Uploader',
-            'path': 'images/photo_uploader.PNG',
-        },
-          {
-            'title': 'To do list',
-            'path': 'images/todolist.PNG',
-        },
-         {
-            'title': 'Portfolio',
-            'path': 'images/portfolio.PNG',
-        },
-                  {
-            'title': 'Labour Hiring',
-            'path': 'images\labour_hiring.PNG',
+            'title': 'Number Guessing Game',
+            'path': 'images/numberguess.png',
         },
 
     ]
@@ -69,7 +53,21 @@ def certificate(request):
 
 
 def contact(request):
-    return render (request,"contact.html")
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        message = request.POST.get("message")
+
+        ContactMessage.objects.create(
+            name=name,
+            email=email,
+            phone=phone,
+            message=message
+        )
+        return render(request, "contact.html", {"success": True})
+
+    return render(request, "contact.html")
 
 def resume(request):
     resume_path="myapp/resume.pdf"

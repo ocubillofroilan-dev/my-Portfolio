@@ -5,33 +5,38 @@
   <div class="contact-info">
     <h1>GIVE ME!!!<br>THE JOB OFFER</h1>
     <p class="email-text">ocubillofroilan@gmail.com</p>
-    
+
     <div class="social-icons">
-      <a href="https://linkedin.com" target="_blank" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://instagram.com" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/froilan-ocubillo-834609409/" target="_blank" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/ocubillofroilan-dev" target="_blank" class="social-btn github"><i class="fab fa-github"></i></a>
+      <a href="https://www.facebook.com/froilan.ocubillo18" target="_blank" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
     </div>
   </div>
 
   <div class="contact-form-card">
-    <form>
+    {% if success %}
+      <div class="form-success">
+        ✅ Thanks! Your message has been sent — I'll get back to you soon.
+      </div>
+    {% endif %}
+
+    <form method="POST">
+      {% csrf_token %}
       <div class="form-group">
-        <strong>
         <label>Enter Name</label>
-        <input type="text" required>
+        <input type="text" name="name" required>
       </div>
       <div class="form-group">
         <label>Enter Email Address</label>
-        <input type="email" required>
+        <input type="email" name="email" required>
       </div>
       <div class="form-group">
         <label>Enter Phone Number</label>
-        <input type="tel">
+        <input type="tel" name="phone">
       </div>
       <div class="form-group">
         <label>Your Message</label>
-        </strong>
-        <textarea rows="4" required></textarea>
+        <textarea name="message" rows="4" required></textarea>
       </div>
       <button type="submit" class="btn-submit">Submit</button>
     </form>
